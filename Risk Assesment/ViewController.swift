@@ -41,8 +41,8 @@ class ViewController: UIViewController {
     
     @IBAction func getCurrentPlace(_ sender: UIButton) {
         
-        //Get place type and output to label
-        let placeFields: GMSPlaceField = .name
+        //set feild to type
+        let placeFields: GMSPlaceField = .types
             placesClient.findPlaceLikelihoodsFromCurrentLocation(withPlaceFields: placeFields) { [weak self] (placeLikelihoods, error) in
               guard let strongSelf = self else {
                 return
@@ -58,8 +58,9 @@ class ViewController: UIViewController {
                 //strongSelf.adressLabel.text = ""
                 return
               }
-
-              strongSelf.nameLabel.text = place.name
+                
+                // Display type
+                strongSelf.nameLabel.text = place.types?.last
               //strongSelf.adressLabel.text = place.formattedAddress
         }
     }
