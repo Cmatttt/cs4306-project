@@ -30,6 +30,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         placesClient = GMSPlacesClient.shared()
         
+        //Get best accuracy
+        locman.desiredAccuracy = kCLLocationAccuracyBest // Can drain battery??
         //Request location access
         locman.delegate = self
         locman.requestWhenInUseAuthorization()
@@ -40,7 +42,7 @@ class ViewController: UIViewController {
     @IBAction func getCurrentPlace(_ sender: UIButton) {
         
         //Get place type and output to label
-        let placeFields: GMSPlaceField = .types.self
+        let placeFields: GMSPlaceField = .name
             placesClient.findPlaceLikelihoodsFromCurrentLocation(withPlaceFields: placeFields) { [weak self] (placeLikelihoods, error) in
               guard let strongSelf = self else {
                 return
@@ -67,7 +69,7 @@ extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
         // Create span
-        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+        let span = MKCoordinateSpan(latitudeDelta: 0.008, longitudeDelta: 0.008)
         
         // Create region
         let region = MKCoordinateRegion(center: locations[0].coordinate, span: span)
