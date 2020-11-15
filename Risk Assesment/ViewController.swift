@@ -11,19 +11,10 @@ import MapKit
 import CoreLocation
 import GooglePlaces
 import UIKit
+import SwiftyJSON
 
-//struct status: Codable {
-//    //let result: Name
-//    let status: String
-//}
-//
-//struct Name: Codable {
-//    let status: String
-//}
 
 class ViewController: UIViewController {
-
-    //@IBOutlet weak var mapView: MKMapView!
     
     //Initialize map and label
     @IBOutlet weak var map: MKMapView!
@@ -41,11 +32,10 @@ class ViewController: UIViewController {
     
     var c: CLPlacemark?
     
-    let county = ""
-    
     let idd = ""
     
     var globalid = ""
+    var countyFinal = ""
     
     
     override func viewDidLoad() {
@@ -68,8 +58,6 @@ class ViewController: UIViewController {
     @IBAction func getCurrentPlace(_ sender: UIButton) {
 
         let placeFields: GMSPlaceField = .all
-        
-        
         placesClient.findPlaceLikelihoodsFromCurrentLocation(withPlaceFields: placeFields) { [weak self] (placeLikelihoods, error) in
           guard let strongSelf = self else {
             return
@@ -90,37 +78,12 @@ class ViewController: UIViewController {
 
             let placeeId = place.placeID!
             
-            print(placeeId)
-            
-            let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(placeeId)&fields=address_components&key=AIzaSyBiLf_c57BUZ-WXsI164zQFb3B7Qcm1-eo"
-            
-            print(apiUrl)
-            
-            let urlObj = URL(string: apiUrl)
-            
-//            URLSession.shared.dataTask(with: urlObj!) { data, _, _ in
-//                if let data = data {
-//                    let list = try? JSONDecoder().decode([status].self, from: data)
-//                    print(list)
-//                }
-//            }.resume()
-//            URLSession.shared.dataTask(with: urlObj!) {(data, responce, error) in
-//
-//                do {
-//                    let list = try JSONDecoder().decode([result].self, from: data!)
-//
-//                    //print(result.init(address_components: ))
-//
-////                    for address_components in list {
-////                        print(address_components.long_name)
-////                    }
-//                } catch {
-//                    print("Error with URL session")
-//                }
-//            }.resume()
-            
-            //print(apiUrl)
-            
+            getCounty(id: placeeId) { (county) in
+                print(county!)
+                
+            }
+
+                                    
             let allPlaces = place.types
             
             let allp = place.types?.joined(separator: ",")
@@ -185,14 +148,7 @@ class ViewController: UIViewController {
     }
 }
 
-//func render(_ location: CLLocation) {
-//    let long = location.coordinate.longitude
-//
-//    let lat = location.coordinate.latitude
-//
-//    print(long)
-//    print(lat)
-//}
+
 
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -208,5 +164,27 @@ extension ViewController: CLLocationManagerDelegate {
         map.showsUserLocation = true
 
     }
+}
+
+func getCounty(id: String, completion: @escaping (String?) -> Void){
+    
+    let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(id)&fields=address_components&key=AIzaSyBiLf_c57BUZ-WXsI164zQFb3B7Qcm1-eo"
+    
+    print(apiUrl)
+    
+    let urlObj = URL(string: apiUrl)
+    
+    URLSession.shared.dataTask(with: urlObj!) { data, _, _ in
+        if let data = data {
+            let datas = JSON(data)
+
+            let tempCounty = datas["result"]["address_components"][3]["long_name"].string!
+
+            print("hi")
+
+            let county = String(tempCounty)
+            completion(county)
+        }
+    }.resume()
 }
 
