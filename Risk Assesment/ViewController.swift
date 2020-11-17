@@ -37,6 +37,8 @@ class ViewController: UIViewController {
     var globalid = ""
     var countyFinal = ""
     
+    var countty = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,10 +80,17 @@ class ViewController: UIViewController {
 
             let placeeId = place.placeID!
             
-            getCounty(id: placeeId) { (county) in
-                print(county!)
-                
-            }
+//
+//            getCounty(id: placeeId) { (county) in
+//                //return county!
+//            }
+             
+            //print(country)
+            //print(cc)
+            
+            //print(countyFinal)
+            
+            //getCounty(id: placeeId, completion: let countty = data)
 
                                     
             let allPlaces = place.types
@@ -146,6 +155,12 @@ class ViewController: UIViewController {
                 
         }
     }
+    
+//    func setCounty(str: String) -> String{
+////        countyy = str
+////        return (countyy)
+//    }
+
 }
 
 
@@ -166,25 +181,28 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
-func getCounty(id: String, completion: @escaping (String?) -> Void){
-    
-    let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(id)&fields=address_components&key=AIzaSyBiLf_c57BUZ-WXsI164zQFb3B7Qcm1-eo"
-    
-    print(apiUrl)
-    
-    let urlObj = URL(string: apiUrl)
-    
-    URLSession.shared.dataTask(with: urlObj!) { data, _, _ in
-        if let data = data {
-            let datas = JSON(data)
-
-            let tempCounty = datas["result"]["address_components"][3]["long_name"].string!
-
-            print("hi")
-
-            let county = String(tempCounty)
-            completion(county)
-        }
-    }.resume()
-}
-
+//func getCounty(id: String, completion: @escaping (String?) -> Void){
+//
+//    let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(id)&fields=address_components&key=AIzaSyBiLf_c57BUZ-WXsI164zQFb3B7Qcm1-eo"
+//
+//    print(apiUrl)
+//
+//    let urlObj = URL(string: apiUrl)
+//
+//    URLSession.shared.dataTask(with: urlObj!) { data, _, _ in
+//        if let data = data {
+//            let datas = JSON(data)
+//
+//            let tempCounty = datas["result"]["address_components"][3]["long_name"].string!
+//
+//            print("hi")
+//
+//            let county = String(tempCounty)
+//
+//            print(type(of: county))
+//
+//            completion(county)
+//        }
+//    }.resume()
+//}
+//
