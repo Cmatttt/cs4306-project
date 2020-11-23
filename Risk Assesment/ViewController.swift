@@ -12,6 +12,7 @@ import CoreLocation
 import GooglePlaces
 import UIKit
 import SwiftyJSON
+import Alamofire
 
 
 class ViewController: UIViewController {
@@ -79,21 +80,17 @@ class ViewController: UIViewController {
            // let comp = place.addressComponents?.count
 
             let placeeId = place.placeID!
-            
-//
-//            getCounty(id: placeeId) { (county) in
-//                //return county!
-//            }
-             
-            //print(country)
-            //print(cc)
-            
-            //print(countyFinal)
-            
-            //getCounty(id: placeeId, completion: let countty = data)
+
+            let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(placeeId)&fields=address_components&key=AIzaSyBiLf_c57BUZ-WXsI164zQFb3B7Qcm1-eo"
+
+            print(apiUrl)
+
+            let urlObj = URL(string: apiUrl)
 
                                     
             let allPlaces = place.types
+            
+            print("PLACEID = ", place.placeID)
             
             let allp = place.types?.joined(separator: ",")
             
@@ -148,7 +145,15 @@ class ViewController: UIViewController {
             } else {
                 print("Missing name.")
             }
-
+            
+            getCounty(id: placeeId) { (county) in
+                let stri = county!
+                
+                print(singlePlace)
+                print(stri)
+                
+                
+            }
 
             strongSelf.nameLabel.text = singlePlace
             strongSelf.types.text = allp
@@ -156,10 +161,10 @@ class ViewController: UIViewController {
         }
     }
     
-//    func setCounty(str: String) -> String{
-////        countyy = str
-////        return (countyy)
-//    }
+    func setCounty(str: String) -> String?{
+        self.globalid += str
+        return ""
+    }
 
 }
 
@@ -181,28 +186,34 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
-//func getCounty(id: String, completion: @escaping (String?) -> Void){
-//
-//    let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(id)&fields=address_components&key=AIzaSyBiLf_c57BUZ-WXsI164zQFb3B7Qcm1-eo"
-//
-//    print(apiUrl)
-//
-//    let urlObj = URL(string: apiUrl)
-//
-//    URLSession.shared.dataTask(with: urlObj!) { data, _, _ in
-//        if let data = data {
-//            let datas = JSON(data)
-//
-//            let tempCounty = datas["result"]["address_components"][3]["long_name"].string!
-//
-//            print("hi")
-//
-//            let county = String(tempCounty)
-//
-//            print(type(of: county))
-//
-//            completion(county)
-//        }
-//    }.resume()
-//}
-//
+func getCounty(id: String, completion: @escaping (String?) -> Void){
+
+    let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(id)&fields=address_components&key=AIzaSyBiLf_c57BUZ-WXsI164zQFb3B7Qcm1-eo"
+
+    print(apiUrl)
+
+    let urlObj = URL(string: apiUrl)
+
+    URLSession.shared.dataTask(with: urlObj!) { data, _, _ in
+        if let data = data {
+            let datas = JSON(data)
+            var tempCounty = ""
+
+            let apiList = datas["result"]["address_components"].array!
+            let apiListCount = apiList.count
+            
+            let counter = 0...apiListCount - 1
+                        
+            for count in counter{
+                if datas["result"]["address_components"][count]["long_name"].string!.contains("County") {
+                    tempCounty = datas["result"]["address_components"][count]["long_name"].string!
+                }
+            }
+
+
+            let county = String(tempCounty)
+            
+            completion(county)
+        }
+    }.resume()
+}
