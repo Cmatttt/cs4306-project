@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B8B5A8E2559FAF000E99BFF /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3B8B5A8D2559FAF000E99BFF /* Podfile */; };
+		3B96AA47256B7841006ABAEB /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96AA46256B7841006ABAEB /* SecondView.swift */; };
 		3BE783ED255905F6002D084D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE783EC255905F6002D084D /* AppDelegate.swift */; };
 		3BE783EF255905F6002D084D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE783EE255905F6002D084D /* SceneDelegate.swift */; };
 		3BE783F1255905F6002D084D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE783F0255905F6002D084D /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		3B8B5A8D2559FAF000E99BFF /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3B96AA46256B7841006ABAEB /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 		3BE783E9255905F6002D084D /* Risk Assesment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Risk Assesment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE783EC255905F6002D084D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BE783EE255905F6002D084D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				3BE783F5255905F9002D084D /* Assets.xcassets */,
 				3BE783F7255905F9002D084D /* LaunchScreen.storyboard */,
 				3BE783FA255905F9002D084D /* Info.plist */,
+				3B96AA46256B7841006ABAEB /* SecondView.swift */,
 			);
 			path = "Risk Assesment";
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			files = (
 				3BE783F1255905F6002D084D /* ViewController.swift in Sources */,
 				3BE783ED255905F6002D084D /* AppDelegate.swift in Sources */,
+				3B96AA47256B7841006ABAEB /* SecondView.swift in Sources */,
 				3BE783EF255905F6002D084D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

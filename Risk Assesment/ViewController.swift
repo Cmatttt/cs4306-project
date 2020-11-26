@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 import CoreLocation
 import GooglePlaces
-import UIKit
 import SwiftyJSON
 import Alamofire
 
@@ -22,6 +21,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var types: UILabel!
     @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    
+    @IBOutlet weak var nl: UILabel!
     
     
     private var placesClient: GMSPlacesClient!
@@ -33,9 +35,12 @@ class ViewController: UIViewController {
     
     var c: CLPlacemark?
     
+    let call = SecondView()
+    
     let idd = ""
     
     var globalid = ""
+    //var yes: String
     var countyFinal = ""
     
     var countty = ""
@@ -59,8 +64,12 @@ class ViewController: UIViewController {
     //let county = locale.regionCode
 
     @IBAction func getCurrentPlace(_ sender: UIButton) {
+        
+        //let sv = storyboard?.instantiateViewController(identifier: "second") as! second
 
         let placeFields: GMSPlaceField = .all
+        var theId: String
+        
         placesClient.findPlaceLikelihoodsFromCurrentLocation(withPlaceFields: placeFields) { [weak self] (placeLikelihoods, error) in
           guard let strongSelf = self else {
             return
@@ -80,23 +89,24 @@ class ViewController: UIViewController {
            // let comp = place.addressComponents?.count
 
             let placeeId = place.placeID!
+            //heId.self = place.placeID!
 
             let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(placeeId)&fields=address_components&key=AIzaSyBiLf_c57BUZ-WXsI164zQFb3B7Qcm1-eo"
 
-            print(apiUrl)
+            //print(apiUrl)
 
-            let urlObj = URL(string: apiUrl)
+            //let urlObj = URL(string: apiUrl)
 
                                     
             let allPlaces = place.types
             
-            print("PLACEID = ", place.placeID)
+            //print("PLACEID = ", place.placeID)
             
             let allp = place.types?.joined(separator: ",")
             
             var singlePlace = ""
             
-            print(placeeId)
+            //print(placeeId)
 
 
             if let unwrapped = allPlaces {
@@ -145,27 +155,57 @@ class ViewController: UIViewController {
             } else {
                 print("Missing name.")
             }
-            
-            getCounty(id: placeeId) { (county) in
-                let stri = county!
-                
-                print(singlePlace)
-                print(stri)
-                
-                
-            }
+
 
             strongSelf.nameLabel.text = singlePlace
             strongSelf.types.text = allp
+            
+            
+            let f: GMSPlaceField = .addressComponents
+            
+            self?.placesClient.fetchPlace(fromPlaceID: placeeId, placeFields: f, sessionToken: nil, callback: {
+                (place: GMSPlace?, error: Error?) in
                 
+                if let error = error {
+                    print("An error occurred: \(error.localizedDescription)")
+                    return
+                  }
+                
+                  if let place = place {
+                    
+                    var county: String
+                    
+                    let listArray = place.addressComponents!
+                    
+                    let apiListCount = listArray.count
+                    
+                    let counter = 0...apiListCount - 1
+                                
+                    for count in counter{
+                        if listArray[count].name.contains("County"){
+                            county = listArray[count].name
+                            //self?.performSegue(withIdentifier: "SecondView", sender: self)
+                            //self?.present(sv, animated: true)
+                            let vc = self?.storyboard?.instantiateViewController(identifier: "SecondView") as! SecondView
+                            vc.modalPresentationStyle = .fullScreen
+                            
+                            var fixedCounty = county
+                            var removeWord = " County"
+
+                            if let range = county.range(of: removeWord) {
+                                fixedCounty.removeSubrange(range)
+                            }
+
+                            vc.county = fixedCounty
+                            vc.place = singlePlace
+                            self?.present(vc, animated: true)
+
+                        }
+                    }
+                  }
+            })
         }
     }
-    
-    func setCounty(str: String) -> String?{
-        self.globalid += str
-        return ""
-    }
-
 }
 
 
@@ -184,36 +224,4 @@ extension ViewController: CLLocationManagerDelegate {
         map.showsUserLocation = true
 
     }
-}
-
-func getCounty(id: String, completion: @escaping (String?) -> Void){
-
-    let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(id)&fields=address_components&key=AIzaSyBiLf_c57BUZ-WXsI164zQFb3B7Qcm1-eo"
-
-    print(apiUrl)
-
-    let urlObj = URL(string: apiUrl)
-
-    URLSession.shared.dataTask(with: urlObj!) { data, _, _ in
-        if let data = data {
-            let datas = JSON(data)
-            var tempCounty = ""
-
-            let apiList = datas["result"]["address_components"].array!
-            let apiListCount = apiList.count
-            
-            let counter = 0...apiListCount - 1
-                        
-            for count in counter{
-                if datas["result"]["address_components"][count]["long_name"].string!.contains("County") {
-                    tempCounty = datas["result"]["address_components"][count]["long_name"].string!
-                }
-            }
-
-
-            let county = String(tempCounty)
-            
-            completion(county)
-        }
-    }.resume()
 }
