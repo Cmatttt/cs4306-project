@@ -9,6 +9,7 @@
 import UIKit
 import GooglePlaces
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        FirebaseApp.configure()
         //API KEY
         GMSPlacesClient.provideAPIKey("AIzaSyBiLf_c57BUZ-WXsI164zQFb3B7Qcm1-eo")
         return true

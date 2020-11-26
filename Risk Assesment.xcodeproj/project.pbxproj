@@ -17,6 +17,8 @@
 		3BE783F9255905F9002D084D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE783F7255905F9002D084D /* LaunchScreen.storyboard */; };
 		3BE78404255905F9002D084D /* Risk_AssesmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE78403255905F9002D084D /* Risk_AssesmentTests.swift */; };
 		3BE7840F255905F9002D084D /* Risk_AssesmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7840E255905F9002D084D /* Risk_AssesmentUITests.swift */; };
+		701E7FE4256FB7420025A749 /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 701E7FE3256FB7420025A749 /* Location.gpx */; };
+		70939DBB256F9E3500E56775 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70939DBA256F9E3500E56775 /* GoogleService-Info.plist */; };
 		DCCED850FF79A1F6BA779C6C /* libPods-Risk Assesment.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2ACF1AB9831BAB27A19E89 /* libPods-Risk Assesment.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,9 @@
 		3BE7840E255905F9002D084D /* Risk_AssesmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Risk_AssesmentUITests.swift; sourceTree = "<group>"; };
 		3BE78410255905F9002D084D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E2ACF1AB9831BAB27A19E89 /* libPods-Risk Assesment.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Risk Assesment.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		701E7FE3256FB7420025A749 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		701E7FE8256FB80D0025A749 /* ASU.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ASU.gpx; sourceTree = "<group>"; };
+		70939DBA256F9E3500E56775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D0115699883468C97DABC1D /* Pods-Risk Assesment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Risk Assesment.release.xcconfig"; path = "Target Support Files/Pods-Risk Assesment/Pods-Risk Assesment.release.xcconfig"; sourceTree = "<group>"; };
 		E0339958D196A71D306249AD /* Pods-Risk Assesment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Risk Assesment.debug.xcconfig"; path = "Target Support Files/Pods-Risk Assesment/Pods-Risk Assesment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +93,8 @@
 		3BE783E0255905F6002D084D = {
 			isa = PBXGroup;
 			children = (
+				701E7FE3256FB7420025A749 /* Location.gpx */,
+				701E7FE8256FB80D0025A749 /* ASU.gpx */,
 				3B8B5A8D2559FAF000E99BFF /* Podfile */,
 				3BE783EB255905F6002D084D /* Risk Assesment */,
 				3BE78402255905F9002D084D /* Risk AssesmentTests */,
@@ -111,6 +118,7 @@
 		3BE783EB255905F6002D084D /* Risk Assesment */ = {
 			isa = PBXGroup;
 			children = (
+				70939DBA256F9E3500E56775 /* GoogleService-Info.plist */,
 				3BE783EC255905F6002D084D /* AppDelegate.swift */,
 				3BE783EE255905F6002D084D /* SceneDelegate.swift */,
 				3BE783F0255905F6002D084D /* ViewController.swift */,
@@ -266,7 +274,9 @@
 			files = (
 				3BE783F9255905F9002D084D /* LaunchScreen.storyboard in Resources */,
 				3BE783F6255905F9002D084D /* Assets.xcassets in Resources */,
+				70939DBB256F9E3500E56775 /* GoogleService-Info.plist in Resources */,
 				3B8B5A8E2559FAF000E99BFF /* Podfile in Resources */,
+				701E7FE4256FB7420025A749 /* Location.gpx in Resources */,
 				3BE783F4255905F6002D084D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
