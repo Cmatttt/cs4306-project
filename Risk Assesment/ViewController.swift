@@ -16,42 +16,33 @@ import Alamofire
 
 class ViewController: UIViewController {
     
-    //Initialize map and label
+    //Initialize map and label and button
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var types: UILabel!
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
-    
     @IBOutlet weak var nl: UILabel!
     
     
     private var placesClient: GMSPlacesClient!
 
-    // CLLocationManager var
+    //Global variables
     let locman = CLLocationManager()
-    
     var loo = CLLocationManager()
-    
     var c: CLPlacemark?
-    
     let call = SecondView()
-    
     let idd = ""
-    
     var globalid = ""
-    //var yes: String
     var countyFinal = ""
-    
     var countty = ""
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //initialize GMSPlacesClient
         placesClient = GMSPlacesClient.shared()
-
+        //Set button radius to have rounded corners
         btn1.layer.cornerRadius = 6
-        
         //Get best accuracy
         locman.desiredAccuracy = kCLLocationAccuracyBest // Can drain battery??
         //Request location access
@@ -61,15 +52,10 @@ class ViewController: UIViewController {
         locman.startUpdatingLocation()
     }
     
-    //let county = locale.regionCode
-
     @IBAction func getCurrentPlace(_ sender: UIButton) {
-        
-        //let sv = storyboard?.instantiateViewController(identifier: "second") as! second
-
+        //var for place feilds
         let placeFields: GMSPlaceField = .all
-        var theId: String
-        
+        //google function to find current place
         placesClient.findPlaceLikelihoodsFromCurrentLocation(withPlaceFields: placeFields) { [weak self] (placeLikelihoods, error) in
           guard let strongSelf = self else {
             return
@@ -82,40 +68,28 @@ class ViewController: UIViewController {
         
 
           guard let place = placeLikelihoods?.first?.place else {
-            strongSelf.nameLabel.text = "No current place"
             return
           }
-        
-           // let comp = place.addressComponents?.count
-
+            //var to get placeID
             let placeeId = place.placeID!
-            //heId.self = place.placeID!
-
+            //var with link to the api
             let apiUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=\(placeeId)&fields=address_components&key=AIzaSyBiLf_c57BUZ-WXsI164zQFb3B7Qcm1-eo"
-
-            //print(apiUrl)
-
-            //let urlObj = URL(string: apiUrl)
-
-                                    
+            //var to get place types
             let allPlaces = place.types
-            
-            //print("PLACEID = ", place.placeID)
-            
+            // var to sperate each type with a ","
             let allp = place.types?.joined(separator: ",")
-            
+            //empty var for sinngle place
             var singlePlace = ""
             
-            //print(placeeId)
-
-
+            //unwrap optional of all places
             if let unwrapped = allPlaces {
+                
+                //var to seperatae by ,
                 let p = unwrapped.joined(separator: ",")
-
+                //var to create an array of places
                 let pArray = p.components(separatedBy: ",")
-
-                //print(type(of: pArray))
-
+                
+                //find out what type of place is in array and set to singleplace
                 if pArray.contains("university"){
                     singlePlace = "university"
                 } else if pArray.contains("gas_station"){
@@ -149,20 +123,14 @@ class ViewController: UIViewController {
                 } else if pArray.contains("museum"){
                     singlePlace = "museum"
                 }
-
-
-
             } else {
                 print("Missing name.")
             }
 
-
-            strongSelf.nameLabel.text = singlePlace
-            strongSelf.types.text = allp
-            
-            
+            //var to get adress componets
             let f: GMSPlaceField = .addressComponents
             
+            //function to get adress components
             self?.placesClient.fetchPlace(fromPlaceID: placeeId, placeFields: f, sessionToken: nil, callback: {
                 (place: GMSPlace?, error: Error?) in
                 
@@ -172,34 +140,39 @@ class ViewController: UIViewController {
                   }
                 
                   if let place = place {
-                    
+                    //empty var for county
                     var county: String
-                    
+                    //create array of adress components
                     let listArray = place.addressComponents!
-                    
+                    //get size of array
                     let apiListCount = listArray.count
-                    
+                    //create counter to go from 0 to size of array - 1
                     let counter = 0...apiListCount - 1
-                                
+                    
+                    // loop through array
                     for count in counter{
+                        //whichever element in array contains county
                         if listArray[count].name.contains("County"){
+                            //then set county to variable
                             county = listArray[count].name
-                            //self?.performSegue(withIdentifier: "SecondView", sender: self)
-                            //self?.present(sv, animated: true)
+                            //create storyboard for second view
                             let vc = self?.storyboard?.instantiateViewController(identifier: "SecondView") as! SecondView
                             vc.modalPresentationStyle = .fullScreen
                             
+                            //vars for fixing county to onl yhave county name
                             var fixedCounty = county
                             var removeWord = " County"
-
+                            
+                            //remove the work county from string *needed to be formatted like this for later*
                             if let range = county.range(of: removeWord) {
                                 fixedCounty.removeSubrange(range)
                             }
-
+                            
+                            //set vars of second view
                             vc.county = fixedCounty
                             vc.place = singlePlace
+                            //display second view
                             self?.present(vc, animated: true)
-
                         }
                     }
                   }

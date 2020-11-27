@@ -12,14 +12,15 @@ import Firebase
 
 class SecondView: UIViewController {
     
+    //Firebase var
     let database = Database.database().reference()
+    //vars used
     var percentage: Double = 0.0
     var county: String = ""
     var place: String = ""
     var pulseLayer: CAShapeLayer!
-    //@IBOutlet weak var lab: UILabel!
 
-    //@IBOutlet var testText: UITextField!
+    //initializing labels and buttons
     @IBOutlet var labelll: UILabel!
     @IBOutlet var SecondView: UIView!
     @IBOutlet var lla: UILabel!
@@ -27,9 +28,8 @@ class SecondView: UIViewController {
     @IBOutlet weak var riskkResult: UILabel!
     
     override func viewDidAppear(_ animated: Bool) {
-        let center = view.center
-        let circlePath2 = UIBezierPath(arcCenter: view.center, radius: 100, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-        
+//        let center = view.center
+//        let circlePath2 = UIBezierPath(arcCenter: view.center, radius: 100, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
 //        pulseLayer = CAShapeLayer()
 //        pulseLayer.path = circlePath2.cgPath
 //        pulseLayer.fillColor = UIColor.clear.cgColor
@@ -43,22 +43,27 @@ class SecondView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //lol.text = county
-        //labelll.text = county
-        print(county)
+
+        //print(county)
+        
+        //contact firebasedatabase to read data in correct county
         database.child("\(county)").observeSingleEvent(of: .value, with: { snapshot in
             
+            //get all the data
             let value = snapshot.value as? NSDictionary
+            //get opnly the calulated percentage
             let perc = value!["percentage"] as! Double
+            //set to percentage var
             self.percentage = perc
-            //print(self.percentage)
-            
+            //once percentage is retreived then start calulate risk function passing in correct county, place and COVID percentage
             self.calculateRisk(county: self.county, place: self.place, percentage: self.percentage)
         })
     }
+    
+    //function to create pulsating effect
     private func pulsate(){
         let animation = CABasicAnimation(keyPath: "transform.scale")
-//        animation.fromValue = 0.0
+//      animation.fromValue = 0.0
         animation.toValue = 0.4
         animation.duration = 0.8
         //animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
@@ -67,18 +72,17 @@ class SecondView: UIViewController {
         pulseLayer.add(animation, forKey: "pulsing")
     }
     
-    private func printe(i: Double){
-        print(i)
-    }
-    
+    //function to calculate risk
     private func calculateRisk(county: String, place: String, percentage: Double){
         print(county, place, percentage)
+        //format text that will be displayed
         lol.textAlignment = .center
         lol.font = UIFont.boldSystemFont(ofSize: 35)
         lol.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         lol.center = view.center
         lol.numberOfLines = 2
         
+        //format uidesign
         let shapeLayer = CAShapeLayer()
         let center = view.center
         let circlePath = UIBezierPath(arcCenter: center, radius: 100, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
@@ -90,11 +94,14 @@ class SecondView: UIViewController {
         riskkResult.textAlignment = .center
         riskkResult.numberOfLines = 3
         
+        
+        //depending on what the county percentage is diplsay risk.
         if percentage <= 0.10 {
+            //display low risk
             lol.text = "Low Risk"
             shapeLayer.strokeColor = UIColor.green.cgColor
             view.layer.addSublayer(shapeLayer)
-            
+            //display what type of place the user is in and tell precautions
             if place == "university"{
                 
             } else if place == "gas station"{
@@ -130,11 +137,12 @@ class SecondView: UIViewController {
             }
             
         } else if percentage > 0.1 && percentage < 0.40 {
+            //display medium risk
             lol.font = UIFont.boldSystemFont(ofSize: 24)
             lol.text = "Medium Risk"
             shapeLayer.strokeColor = UIColor.yellow.cgColor
             view.layer.addSublayer(shapeLayer)
-            
+            //display what type of place the user is in and tell precautions
             if place == "university"{
                 
             } else if place == "gas station"{
@@ -170,10 +178,11 @@ class SecondView: UIViewController {
             }
             
         } else if percentage > 0.40 {
+            //display high risk
             lol.text = "High Risk"
             shapeLayer.strokeColor = UIColor.red.cgColor
             view.layer.addSublayer(shapeLayer)
-            
+            //display what type of place the user is in and tell precautions
             if place == "university"{
                 
             } else if place == "gas station"{
