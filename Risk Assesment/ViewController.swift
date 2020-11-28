@@ -18,11 +18,7 @@ class ViewController: UIViewController {
     
     //Initialize map and label and button
     @IBOutlet weak var map: MKMapView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var types: UILabel!
     @IBOutlet weak var btn1: UIButton!
-    @IBOutlet weak var btn2: UIButton!
-    @IBOutlet weak var nl: UILabel!
     
     
     private var placesClient: GMSPlacesClient!
@@ -42,7 +38,9 @@ class ViewController: UIViewController {
         //initialize GMSPlacesClient
         placesClient = GMSPlacesClient.shared()
         //Set button radius to have rounded corners
-        btn1.layer.cornerRadius = 6
+        btn1.layer.cornerRadius = 40
+        btn1.backgroundColor = UIColor.gray
+        btn1.setTitleColor(UIColor.black, for: .normal)
         //Get best accuracy
         locman.desiredAccuracy = kCLLocationAccuracyBest // Can drain battery??
         //Request location access
@@ -158,7 +156,7 @@ class ViewController: UIViewController {
                             county = listArray[count].name
                             //create storyboard for second view
                             let vc = self?.storyboard?.instantiateViewController(identifier: "SecondView") as! SecondView
-                            vc.modalPresentationStyle = .fullScreen
+                            vc.modalPresentationStyle = .popover
                             
                             //vars for fixing county to onl yhave county name
                             var fixedCounty = county
@@ -180,6 +178,10 @@ class ViewController: UIViewController {
             })
         }
     }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+
+    }
 }
 
 
@@ -199,3 +201,4 @@ extension ViewController: CLLocationManagerDelegate {
 
     }
 }
+

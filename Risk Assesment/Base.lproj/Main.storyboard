@@ -21,37 +21,16 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="618"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b55-9J-4o6">
-                                <rect key="frame" x="123" y="774" width="169" height="30"/>
+                                <rect key="frame" x="60" y="727" width="295" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="6" maxY="0.0"/>
-                                <state key="normal" title="Get location type"/>
+                                <state key="normal" title="Calculate Risk">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
                                 <connections>
                                     <action selector="getCurrentPlace:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8te-aM-8nJ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="types" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="md0-Rr-UxJ">
-                                <rect key="frame" x="20" y="715" width="374" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edb-dI-1i9">
-                                <rect key="frame" x="49" y="670" width="316" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hF-0U-msZ">
-                                <rect key="frame" x="123" y="823" width="169" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="secondaryLabelColor"/>
-                                <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="6" maxY="0.0"/>
-                                <state key="normal" title="Calculate Risk"/>
-                                <connections>
-                                    <action selector="getCurrentPlace:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bjt-dO-XVt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,10 +48,7 @@
                     </view>
                     <connections>
                         <outlet property="btn1" destination="b55-9J-4o6" id="5PV-J8-CNf"/>
-                        <outlet property="btn2" destination="8hF-0U-msZ" id="1d3-7e-gkX"/>
                         <outlet property="map" destination="RkW-TV-ftY" id="ViI-TL-277"/>
-                        <outlet property="nameLabel" destination="edb-dI-1i9" id="Rqi-G3-NZ4"/>
-                        <outlet property="types" destination="md0-Rr-UxJ" id="Xze-r3-07V"/>
                         <segue destination="Lw8-Z6-0tr" kind="presentation" identifier="nextid" id="vfb-Be-5S5"/>
                     </connections>
                 </viewController>
@@ -88,36 +64,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeJ-2L-8HY">
-                                <rect key="frame" x="153" y="314" width="109" height="108"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeJ-2L-8HY">
+                                <rect key="frame" x="153" y="90" width="109" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uU-Dl-FHc">
-                                <rect key="frame" x="50" y="598" width="314" height="157"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Risk Output" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uU-Dl-FHc">
+                                <rect key="frame" x="50" y="364" width="314" height="353"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Banner" translatesAutoresizingMaskIntoConstraints="NO" id="48B-6Q-Dth">
+                                <rect key="frame" x="0.0" y="706" width="414" height="87"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qH7-Je-Moo"/>
                         <color key="backgroundColor" systemColor="systemFillColor"/>
+                        <constraints>
+                            <constraint firstItem="qH7-Je-Moo" firstAttribute="trailing" secondItem="48B-6Q-Dth" secondAttribute="trailing" id="8QY-xI-pjx"/>
+                            <constraint firstItem="48B-6Q-Dth" firstAttribute="leading" secondItem="qH7-Je-Moo" secondAttribute="leading" id="Dak-6c-tu7"/>
+                            <constraint firstItem="qH7-Je-Moo" firstAttribute="bottom" secondItem="48B-6Q-Dth" secondAttribute="bottom" id="FC7-6a-mxS"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="SecondView" destination="mMy-LY-gOI" id="TQq-T7-ECj"/>
                         <outlet property="lol" destination="JeJ-2L-8HY" id="ee9-XD-7ep"/>
                         <outlet property="riskkResult" destination="1uU-Dl-FHc" id="2yk-5n-7nY"/>
+                        <segue destination="oeV-lc-fCY" kind="unwind" identifier="unwindToViewController1" unwindAction="prepareForUnwindWithSegue:" id="ZeR-10-RPg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feA-Pg-BSu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="oeV-lc-fCY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1050.7246376811595" y="144.64285714285714"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Banner" width="722" height="180"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

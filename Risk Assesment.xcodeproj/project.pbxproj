@@ -17,10 +17,7 @@
 		3BE783F9255905F9002D084D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE783F7255905F9002D084D /* LaunchScreen.storyboard */; };
 		3BE78404255905F9002D084D /* Risk_AssesmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE78403255905F9002D084D /* Risk_AssesmentTests.swift */; };
 		3BE7840F255905F9002D084D /* Risk_AssesmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7840E255905F9002D084D /* Risk_AssesmentUITests.swift */; };
-		701E7FE4256FB7420025A749 /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 701E7FE3256FB7420025A749 /* Location.gpx */; };
 		70939DBB256F9E3500E56775 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70939DBA256F9E3500E56775 /* GoogleService-Info.plist */; };
-		70A5A20F2571A4CC0025A0C5 /* Leander Neighborhood.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 70A5A20E2571A4CC0025A0C5 /* Leander Neighborhood.gpx */; };
-		70A5A2142571D7BB0025A0C5 /* San Antonio HEB.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 70A5A2132571D7BB0025A0C5 /* San Antonio HEB.gpx */; };
 		DCCED850FF79A1F6BA779C6C /* libPods-Risk Assesment.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2ACF1AB9831BAB27A19E89 /* libPods-Risk Assesment.a */; };
 /* End PBXBuildFile section */
 
@@ -72,11 +69,16 @@
 		3BE7840E255905F9002D084D /* Risk_AssesmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Risk_AssesmentUITests.swift; sourceTree = "<group>"; };
 		3BE78410255905F9002D084D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E2ACF1AB9831BAB27A19E89 /* libPods-Risk Assesment.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Risk Assesment.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		701E7FE3256FB7420025A749 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		701E7FE8256FB80D0025A749 /* ASU.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ASU.gpx; sourceTree = "<group>"; };
+		7040B5172572458900A0A71F /* San Angelo Walmart.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "San Angelo Walmart.gpx"; sourceTree = "<group>"; };
+		7040B518257245A200A0A71F /* San Angelo Hospital.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "San Angelo Hospital.gpx"; sourceTree = "<group>"; };
+		7040B519257245D900A0A71F /* Cedar Park Mcdonalds.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Cedar Park Mcdonalds.gpx"; sourceTree = "<group>"; };
+		7040B51A257245EF00A0A71F /* Cedar Park Hospital.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Cedar Park Hospital.gpx"; sourceTree = "<group>"; };
+		7040B51B2572460E00A0A71F /* Cedar Park Center.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Cedar Park Center.gpx"; sourceTree = "<group>"; };
+		7040B51C2572463500A0A71F /* Dallas Walmart.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Dallas Walmart.gpx"; sourceTree = "<group>"; };
+		7040B51D2572464A00A0A71F /* Dallas Hospital.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Dallas Hospital.gpx"; sourceTree = "<group>"; };
+		7040B51E2572467C00A0A71F /* Dallas Cowboys Stadium.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Dallas Cowboys Stadium.gpx"; sourceTree = "<group>"; };
 		70939DBA256F9E3500E56775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		70A5A20E2571A4CC0025A0C5 /* Leander Neighborhood.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Leander Neighborhood.gpx"; sourceTree = "<group>"; };
-		70A5A2132571D7BB0025A0C5 /* San Antonio HEB.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "San Antonio HEB.gpx"; sourceTree = "<group>"; };
 		70A5A21D2571DF8B0025A0C5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		70A5A21F2571DF8B0025A0C5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		9D0115699883468C97DABC1D /* Pods-Risk Assesment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Risk Assesment.release.xcconfig"; path = "Target Support Files/Pods-Risk Assesment/Pods-Risk Assesment.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,9 +114,14 @@
 		3BE783E0255905F6002D084D = {
 			isa = PBXGroup;
 			children = (
-				70A5A2132571D7BB0025A0C5 /* San Antonio HEB.gpx */,
-				70A5A20E2571A4CC0025A0C5 /* Leander Neighborhood.gpx */,
-				701E7FE3256FB7420025A749 /* Location.gpx */,
+				7040B51E2572467C00A0A71F /* Dallas Cowboys Stadium.gpx */,
+				7040B51D2572464A00A0A71F /* Dallas Hospital.gpx */,
+				7040B51C2572463500A0A71F /* Dallas Walmart.gpx */,
+				7040B51B2572460E00A0A71F /* Cedar Park Center.gpx */,
+				7040B51A257245EF00A0A71F /* Cedar Park Hospital.gpx */,
+				7040B519257245D900A0A71F /* Cedar Park Mcdonalds.gpx */,
+				7040B518257245A200A0A71F /* San Angelo Hospital.gpx */,
+				7040B5172572458900A0A71F /* San Angelo Walmart.gpx */,
 				701E7FE8256FB80D0025A749 /* ASU.gpx */,
 				3B8B5A8D2559FAF000E99BFF /* Podfile */,
 				3BE783EB255905F6002D084D /* Risk Assesment */,
@@ -297,12 +304,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BE783F9255905F9002D084D /* LaunchScreen.storyboard in Resources */,
-				70A5A2142571D7BB0025A0C5 /* San Antonio HEB.gpx in Resources */,
-				70A5A20F2571A4CC0025A0C5 /* Leander Neighborhood.gpx in Resources */,
 				3BE783F6255905F9002D084D /* Assets.xcassets in Resources */,
 				70939DBB256F9E3500E56775 /* GoogleService-Info.plist in Resources */,
 				3B8B5A8E2559FAF000E99BFF /* Podfile in Resources */,
-				701E7FE4256FB7420025A749 /* Location.gpx in Resources */,
 				3BE783F4255905F6002D084D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,7 +550,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0339958D196A71D306249AD /* Pods-Risk Assesment.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VAD3Q9CPUG;
@@ -566,7 +569,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9D0115699883468C97DABC1D /* Pods-Risk Assesment.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VAD3Q9CPUG;
