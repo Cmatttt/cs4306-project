@@ -112,7 +112,7 @@ class SecondView: UIViewController {
             } else if place == "hotel"{
                 riskkResult.text = "You're at a hotel in a low risk area, please wear a mask when you are not in your and sanitize often."
             } else if place == "hospital"{
-                riskkResult.text = "You're at a hospital in a low risk area, please be cautious and follow hospital COVID--19 guidlines as this are may still be high risk."
+                riskkResult.text = "You're at a hospital in a low risk area, please be cautious and follow hospital COVID-19 guidlines as this are may still be high risk."
             } else if place == "gym"{
                 riskkResult.text = "You're at a gym in a low risk area, please still be sure to take normal covid precautions."
             } else if place == "airport"{
@@ -122,9 +122,9 @@ class SecondView: UIViewController {
             } else if place == "church"{
                 riskkResult.text = "You're at a church in a low risk area, please wear a mask at all times and socially distace from others while keeping hands sanitized."
             } else if place == "doctor"{
-                riskkResult.text = "You're at a doctor in a low risk area, please be cautious and follow companies COVID--19 guidlines as this are may still be high risk."
+                riskkResult.text = "You're at a doctor in a low risk area, please be cautious and follow companies COVID-19 guidlines as this are may still be high risk."
             } else if place == "stadium"{
-                riskkResult.text = "You're at a stadium in a low risk area, please keep socially ditanced and santitized often."
+                riskkResult.text = "You're at a stadium in a low risk area, please keep socially ditanced and santitize often."
             } else if place == "supermarket"{
                 riskkResult.text = "You're at a supermarket in a low risk area, please wear mask at all times and keep socially distanced while keeping hands sanitized."
             } else if place == "store"{
@@ -156,7 +156,7 @@ class SecondView: UIViewController {
             } else if place == "hotel"{
                 riskkResult.text = "You're at a hotel in a medium risk area, please wear a mask when you are not in your and sanitize often."
             } else if place == "hospital"{
-                riskkResult.text = "You're at a hospital in a medium risk area, please be cautious and follow hospital COVID--19 guidlines as this are may still be high risk."
+                riskkResult.text = "You're at a hospital in a medium risk area, please be cautious and follow hospital COVID-19 guidlines as this are may still be high risk."
             } else if place == "gym"{
                 riskkResult.text = "You're at a gym in a medium risk area, please still be sure to take normal covid precautions."
             } else if place == "airport"{
@@ -166,9 +166,9 @@ class SecondView: UIViewController {
             } else if place == "church"{
                 riskkResult.text = "You're at a church in a medium risk area, please wear a mask at all times and socially distace from others while keeping hands sanitized."
             } else if place == "doctor"{
-                riskkResult.text = "You're at a doctor in a medium risk area, please be cautious and follow companies COVID--19 guidlines as this are may still be high risk."
+                riskkResult.text = "You're at a doctor in a medium risk area, please be cautious and follow companies COVID-19 guidlines as this are may still be high risk."
             } else if place == "stadium"{
-                riskkResult.text = "You're at a stadium in a medium risk area, please keep socially ditanced and santitized often."
+                riskkResult.text = "You're at a stadium in a medium risk area, please keep socially ditanced and santitize often."
             } else if place == "supermarket"{
                 riskkResult.text = "You're at a supermarket in a medium risk area, please wear mask at all times and keep socially distanced while keeping hands sanitized."
             } else if place == "store"{
@@ -199,7 +199,7 @@ class SecondView: UIViewController {
             } else if place == "hotel"{
                 riskkResult.text = "You're at a hotel in a high risk area, please wear a mask when you are not in your and sanitize often."
             } else if place == "hospital"{
-                riskkResult.text = "You're at a hospital in a high risk area, please be cautious and follow hospital COVID--19 guidlines as this area is very high risk."
+                riskkResult.text = "You're at a hospital in a high risk area, please be cautious and follow hospital COVID-19 guidlines as this area is very high risk."
             } else if place == "gym"{
                 riskkResult.text = "You're at a gym in a high risk area, please still be sure to take normal covid precautions."
             } else if place == "airport"{
@@ -209,9 +209,9 @@ class SecondView: UIViewController {
             } else if place == "church"{
                 riskkResult.text = "You're at a church in a high risk area, please wear a mask at all times and socially distace from others while keeping hands sanitized."
             } else if place == "doctor"{
-                riskkResult.text = "You're at a doctor in a high risk area, please be cautious and follow companies COVID--19 guidlines as this area is very high risk."
+                riskkResult.text = "You're at a doctor in a high risk area, please be cautious and follow companies COVID-19 guidlines as this area is very high risk."
             } else if place == "stadium"{
-                riskkResult.text = "You're at a stadium in a high risk area, please keep socially ditanced and santitized often."
+                riskkResult.text = "You're at a stadium in a high risk area, please keep socially ditanced and santitize often."
             } else if place == "supermarket"{
                 riskkResult.text = "You're at a supermarket in a high risk area, please wear mask at all times and keep socially distanced while keeping hands sanitized."
             } else if place == "store"{

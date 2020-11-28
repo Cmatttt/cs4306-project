@@ -117,7 +117,9 @@ class ViewController: UIViewController {
                     singlePlace = "supermarket"
                 } else if pArray.contains("store"){
                     singlePlace = "store"
-                } else if pArray.contains("establishment"){
+                } else if pArray.contains("health"){
+                    singlePlace = "hospital"
+                }else if pArray.contains("establishment"){
                     singlePlace = "establishment"
                 } else if pArray.contains("museum"){
                     singlePlace = "museum"
