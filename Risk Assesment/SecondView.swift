@@ -28,17 +28,7 @@ class SecondView: UIViewController {
     @IBOutlet weak var riskkResult: UILabel!
     
     override func viewDidAppear(_ animated: Bool) {
-//        let center = view.center
-//        let circlePath2 = UIBezierPath(arcCenter: view.center, radius: 100, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-//        pulseLayer = CAShapeLayer()
-//        pulseLayer.path = circlePath2.cgPath
-//        pulseLayer.fillColor = UIColor.clear.cgColor
-//        pulseLayer.strokeColor = UIColor.blue.cgColor
-//        pulseLayer.lineWidth = 10
-//        pulseLayer.anchorPoint = view.center
-//        pulsate()
-//        view.layer.addSublayer(pulseLayer)
-
+        
     }
     
     override func viewDidLoad() {
@@ -62,14 +52,23 @@ class SecondView: UIViewController {
     
     //function to create pulsating effect
     private func pulsate(){
-        let animation = CABasicAnimation(keyPath: "transform.scale")
-//      animation.fromValue = 0.0
-        animation.toValue = 0.4
-        animation.duration = 0.8
-        //animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-        animation.autoreverses = true
-        animation.repeatCount = Float.infinity
-        pulseLayer.add(animation, forKey: "pulsing")
+//        let animation = CABasicAnimation(keyPath: "transform.scale")
+//        animation.toValue = 0.4
+//        animation.duration = 0.8
+//        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+//        animation.autoreverses = true
+//        animation.repeatCount = Float.infinity
+//        pulseLayer.add(animation, forKey: "pulsing")
+        let layerAnimation = CABasicAnimation(keyPath: "shadowRadius")
+        //layerAnimation.fromValue = 0.0
+        layerAnimation.toValue = 10
+        layerAnimation.autoreverses = true
+        layerAnimation.isAdditive = false
+        layerAnimation.duration = 0.8
+        //layerAnimation.fillMode = CAMediaTimingFillMode.forwards
+        layerAnimation.isRemovedOnCompletion = false
+        layerAnimation.repeatCount = .infinity
+        pulseLayer.add(layerAnimation, forKey: "glowingAnimation")
     }
     
     //function to calculate risk
@@ -94,12 +93,25 @@ class SecondView: UIViewController {
         riskkResult.textAlignment = .center
         riskkResult.numberOfLines = 3
         
+        let circlePath2 = UIBezierPath(arcCenter: view.center, radius: 100, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        pulseLayer = CAShapeLayer()
+        pulseLayer.path = circlePath2.cgPath
+        pulseLayer.fillColor = UIColor.clear.cgColor
+        //pulseLayer.strokeColor = UIColor.red.cgColor
+        pulseLayer.lineWidth = 10
+        pulseLayer.shadowOpacity = 5
+        //pulsate()
+        
         
         //depending on what the county percentage is diplsay risk.
         if percentage <= 0.10 {
             //display low risk
             lol.text = "Low Risk"
             shapeLayer.strokeColor = UIColor.green.cgColor
+            pulseLayer.strokeColor = UIColor.green.cgColor
+            pulseLayer.shadowColor = UIColor.green.cgColor
+            pulsate()
+            view.layer.addSublayer(pulseLayer)
             view.layer.addSublayer(shapeLayer)
             //display what type of place the user is in and tell precautions
             if place == "university"{
@@ -140,6 +152,10 @@ class SecondView: UIViewController {
             lol.font = UIFont.boldSystemFont(ofSize: 24)
             lol.text = "Medium Risk"
             shapeLayer.strokeColor = UIColor.yellow.cgColor
+            pulseLayer.strokeColor = UIColor.yellow.cgColor
+            pulseLayer.shadowColor = UIColor.yellow.cgColor
+            pulsate()
+            view.layer.addSublayer(pulseLayer)
             view.layer.addSublayer(shapeLayer)
             //display what type of place the user is in and tell precautions
             if place == "university"{
@@ -179,6 +195,10 @@ class SecondView: UIViewController {
             //display high risk
             lol.text = "High Risk"
             shapeLayer.strokeColor = UIColor.red.cgColor
+            pulseLayer.strokeColor = UIColor.red.cgColor
+            pulseLayer.shadowColor = UIColor.red.cgColor
+            pulsate()
+            view.layer.addSublayer(pulseLayer)
             view.layer.addSublayer(shapeLayer)
             //display what type of place the user is in and tell precautions
             if place == "university"{

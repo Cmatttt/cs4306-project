@@ -78,6 +78,7 @@ class ViewController: UIViewController {
             let allPlaces = place.types
             // var to sperate each type with a ","
             let allp = place.types?.joined(separator: ",")
+            print(apiUrl)
             //empty var for sinngle place
             var singlePlace = ""
             
