@@ -17,7 +17,7 @@
 		3BE783F9255905F9002D084D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE783F7255905F9002D084D /* LaunchScreen.storyboard */; };
 		3BE78404255905F9002D084D /* Risk_AssesmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE78403255905F9002D084D /* Risk_AssesmentTests.swift */; };
 		3BE7840F255905F9002D084D /* Risk_AssesmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7840E255905F9002D084D /* Risk_AssesmentUITests.swift */; };
-		70939DBB256F9E3500E56775 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70939DBA256F9E3500E56775 /* GoogleService-Info.plist */; };
+		7060585825E20E010075AF62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7060585725E20E010075AF62 /* GoogleService-Info.plist */; };
 		DCCED850FF79A1F6BA779C6C /* libPods-Risk Assesment.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2ACF1AB9831BAB27A19E89 /* libPods-Risk Assesment.a */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +78,7 @@
 		7040B51C2572463500A0A71F /* Dallas Walmart.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Dallas Walmart.gpx"; sourceTree = "<group>"; };
 		7040B51D2572464A00A0A71F /* Dallas Hospital.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Dallas Hospital.gpx"; sourceTree = "<group>"; };
 		7040B51E2572467C00A0A71F /* Dallas Cowboys Stadium.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Dallas Cowboys Stadium.gpx"; sourceTree = "<group>"; };
-		70939DBA256F9E3500E56775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7060585725E20E010075AF62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70A5A21D2571DF8B0025A0C5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		70A5A21F2571DF8B0025A0C5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		9D0115699883468C97DABC1D /* Pods-Risk Assesment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Risk Assesment.release.xcconfig"; path = "Target Support Files/Pods-Risk Assesment/Pods-Risk Assesment.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		3BE783EB255905F6002D084D /* Risk Assesment */ = {
 			isa = PBXGroup;
 			children = (
-				70939DBA256F9E3500E56775 /* GoogleService-Info.plist */,
+				7060585725E20E010075AF62 /* GoogleService-Info.plist */,
 				3BE783EC255905F6002D084D /* AppDelegate.swift */,
 				3BE783EE255905F6002D084D /* SceneDelegate.swift */,
 				3BE783F0255905F6002D084D /* ViewController.swift */,
@@ -305,7 +305,7 @@
 			files = (
 				3BE783F9255905F9002D084D /* LaunchScreen.storyboard in Resources */,
 				3BE783F6255905F9002D084D /* Assets.xcassets in Resources */,
-				70939DBB256F9E3500E56775 /* GoogleService-Info.plist in Resources */,
+				7060585825E20E010075AF62 /* GoogleService-Info.plist in Resources */,
 				3B8B5A8E2559FAF000E99BFF /* Podfile in Resources */,
 				3BE783F4255905F6002D084D /* Main.storyboard in Resources */,
 			);

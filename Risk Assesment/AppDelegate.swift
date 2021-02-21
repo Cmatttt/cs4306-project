@@ -12,7 +12,7 @@ import UIKit
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+  class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private var placesClient: GMSPlacesClient!
 
